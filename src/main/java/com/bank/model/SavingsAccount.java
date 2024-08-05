@@ -1,9 +1,11 @@
 package com.bank.model;
 
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account {
+//    Final - esta classe SavingsAccount não pode ser herdada por outra
+
     private Double interestRate;
 
-    public  SavingsAccount(){
+    public SavingsAccount() {
         super();
     }
 
@@ -20,12 +22,13 @@ public class SavingsAccount extends Account{
         this.interestRate = interestRate;
     }
 
-    public void updateBalance(){
+    public void updateBalance() {
         balance += balance * interestRate;
     }
 
     @Override
-    public void withdraw(double amount){
+    public final void withdraw(double amount) {
         balance -= amount;
     }
+    //Final - método não poderá ser sobreposto
 }
